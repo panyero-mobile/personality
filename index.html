@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* White background */
+          }
+
+        .container {
+            padding: 16px;
+        }
+
+        /* Header Styles */
+        .header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 10px;
+        }
+
+        .header-avatar {
+            width: 50px;
+            height: 50px;
+           border-radius: 50%;
+            margin-right: 10px;
+           object-fit: cover;
+           background-color: #e0e0e0; /* Add a background color to the avatar */
+        }
+
+        .header-text {
+             flex: 1
+        }
+
+         .header-text h2{
+          font-weight: bold;
+        margin-bottom: 0;
+         }
+
+        .header-text p {
+          font-size: 12px;
+           color: #6B7280;
+          margin: 0;
+        }
+
+         .hamburger-menu {
+            cursor: pointer;
+        }
+
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+             border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ddd; /* Light gray border */
+              display: flex;
+              align-items: center;
+            background-color: #f0f0f0;
+        }
+
+      .search-bar input {
+        border: none;
+        background-color: transparent;
+        flex: 1;
+        outline: none;
+      }
+
+        /* Persona Section */
+          .persona-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+           margin-bottom: 10px;
+        }
+
+        .persona-title {
+            font-size: 16px;
+          font-weight: bold;
+        }
+
+        .show-all {
+          display: flex;
+            align-items: center;
+          cursor: pointer;
+          color: #1976d2;
+         }
+           .show-all span{
+               font-weight: bold;
+            }
+
+        .avatar-list {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+             margin-bottom: 20px
+        }
+        .avatar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+              min-width: 100px;
+        }
+
+        .avatar {
+            font-size: 50px;
+            background-color: #e0e0e0; /* Add a background color to the avatar */
+            border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 50px;
+              height: 50px;
+
+        }
+
+        .avatar-text {
+            margin-top: 5px;
+          font-size: 12px;
+        }
+
+
+        /* Document Section Styles */
+         .document-type-section {
+            margin-bottom: 20px;
+         }
+
+          .document-type-section .section-title {
+                 font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+
+        .document-card-list{
+              display: flex;
+              overflow-x: auto;
+              white-space: nowrap;
+              padding: 5px
+        }
+
+         .document-card {
+            width: 200px;
+              background-color: #F0F0F0;
+            border-radius: 10px;
+             margin-right: 10px;
+         }
+
+          .document-card-image {
+            width: 100%;
+            height: 150px;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+          object-fit: cover;
+         }
+        .document-card-content {
+            padding: 10px;
+        }
+
+         .document-card-content h3 {
+           margin-bottom: 5px;
+        }
+        .document-card-content p{
+           font-size: 12px;
+              color: #6B7280;
+        }
+
+    /* Document Form Section */
+         .document-form-section{
+         }
+
+         .document-form-section .section-title {
+                 font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+    .document-form-card {
+         background-color: #F1F5F9;
+        padding: 5px;
+      margin: 10px
+    }
+
+    .document-form-card-header{
+     display: flex;
+      border-bottom: 1px solid #E4E4E7;
+      padding: 10px;
+      align-items: center;
+    }
+    .document-form-card-header .material-icons{
+        margin-right: 10px;
+    }
+
+  .document-form-card-header h3 {
+        flex: 1
+      margin-bottom: 0;
+       font-size: 15px;
+    }
+
+     .document-form-card-header-right{
+      align-items: flex-end;
+         display: flex;
+         margin-left: 10px;
+          flex-direction: column
+    }
+
+   .document-form-card-content {
+        padding: 10px
+    }
+     .document-form-card-content h3 {
+      font-size: 12px;
+         margin-bottom: 5px;
+    }
+
+     /* Modal Styles */
+       .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+           z-index: 100;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+             max-width: 800px
+          overflow-y: auto;
+          max-height: 80%;
+        }
+    .modal-list{
+          display: flex;
+          flex-wrap: wrap;
+         padding: 5px;
+         gap: 20px;
+    }
+
+    .modal-avatar-container{
+         display: flex;
+            flex-direction: column;
+            align-items: center;
+    }
+    .modal-avatar {
+         font-size: 50px;
+            background-color: #e0e0e0; /* Add a background color to the avatar */
+            border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 50px;
+              height: 50px;
+        }
+    .modal-avatar-text{
+       margin-top: 5px;
+          font-size: 12px;
+    }
+
+        /* Show modal when active */
+        .modal.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <div class="header">
+          <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="User Avatar" class="header-avatar">
+        <div class="header-text">
+         <h2>Master Panyero</h2>
+            <p>Premium Plan</p>
+        </div>
+             <div class="hamburger-menu">
+             <span class="material-icons">menu</span>
+            </div>
+         </div>
+
+          <div class="search-bar">
+            <input type="text" placeholder="Search Doc..." />
+            <span class="material-icons">search</span>
+          </div>
+
+         <div class="persona-section">
+             <h2 class="persona-title">Persona</h2>
+            <div class="show-all" onclick="toggleModal()">
+              <span>Show All</span>
+              <span class="material-icons">arrow_forward_ios</span>
+            </div>
+         </div>
+
+        <div class="avatar-list" id="avatarList">
+
+        </div>
+
+        <div class="document-type-section">
+          <h2 class="section-title">Document type</h2>
+          <div class="document-card-list">
+              <div class="document-card">
+              <img src="https://picsum.photos/300" alt="Document Image" class="document-card-image">
+              <div class="document-card-content">
+                    <h3>Logbook Report</h3>
+                  <p>This is for creating logbook during voyage</p>
+              </div>
+              </div>
+               <div class="document-card">
+                  <img src="https://picsum.photos/301" alt="Document Image" class="document-card-image">
+              <div class="document-card-content">
+                   <h3>Logbook Report</h3>
+                    <p>This is for creating logbook during voyage</p>
+              </div>
+              </div>
+          </div>
+        </div>
+
+    <div class="document-form-section">
+         <h2 class="section-title">Document Form</h2>
+      <div class="document-form-card">
+            <div class="document-form-card-header">
+              <span class="material-icons">description</span>
+                 <h3>Container Ship (Cargo Operation)</h3>
+            <div class="document-form-card-header-right">
+                <p style="font-size: 8px;">Original Date:</p>
+                 <p style="font-size: 8px; font-weight: bold;">01 March 2008</p>
+            </div>
+                <div class="document-form-card-header-right">
+                <p style="font-size: 8px;">Version:</p>
+                <p style="font-size: 8px; font-weight: bold;">No: 1</p>
+                 </div>
+                  <div class="document-form-card-header-right">
+                <p style="font-size: 8px;">Page:</p>
+                     <p style="font-size: 8px; font-weight: bold;">1 of 109</p>
+                  </div>
+         </div>
+           <div class="document-form-card-content">
+            <h3>TABLE OF CONTENTS</h3>
+               <div style="margin-top: 5px">
+                  <p style="font-size: 12px">1. Container Ship</p>
+                 <p style="font-size: 12px; margin-left: 15px;">1.1 Trade Service</p>
+             </div>
+          </div>
+      </div>
+    </div>
+
+       <div class="modal" id="modal">
+            <div class="modal-content">
+                 <div class="modal-list" id="modalList">
+                  </div>
+              </div>
+         </div>
+    </div>
+    <script>
+        const SHEET_ID = '1CC0DhEZAWV_8frnk3f60-Kthu5XTJqKc0dLo0j_NzWM';
+        const API_KEY = 'AIzaSyDGcOuu1L7PFTPCLoLjBwSvji8cFeUr1dw';
+
+        const avatarListContainer = document.getElementById('avatarList');
+        const modalListContainer = document.getElementById('modalList');
+
+
+        function createAvatarHTML(avatar_url, name, isModal){
+          let container = document.createElement('div');
+            container.classList.add(`${isModal? 'modal-avatar-container' : 'avatar-container'}`);
+              container.innerHTML= ` <span class="material-icons ${isModal ? 'modal-avatar' : 'avatar'}">${avatar_url}</span>
+                   <p class="${isModal ? 'modal-avatar-text' : 'avatar-text'}">${name}</p>`;
+            return container
+         }
+
+        const fetchData = async () => {
+          try {
+            const url =`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1?key=${API_KEY}`;
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            const rows = data.values.slice(1); // Skip header
+            const personaData = rows.map((row) => ({
+              avatar_url: row[0],
+              name: row[1],
+            }));
+
+            // Render the main avatar list (first 4)
+              personaData.slice(0, 4).map(persona => {
+             const avatarContainer = createAvatarHTML(persona.avatar_url, persona.name, false)
+                avatarListContainer.appendChild(avatarContainer);
+          })
+            // Render all personas in modal
+             personaData.map(persona => {
+               const modalContainer = createAvatarHTML(persona.avatar_url, persona.name, true)
+                modalListContainer.appendChild(modalContainer)
+          })
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+            if (SHEET_ID && API_KEY) {
+          fetchData();
+            }
+
+
+        function toggleModal() {
+          const modal = document.getElementById("modal");
+          modal.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
