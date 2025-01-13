@@ -1,0 +1,24 @@
+{
+  "Deck Officer": {
+    "avatar": "deck_officer.png",
+    "icons": {
+      "Navigation Log": "description",
+      "Maintenance Report": "build"
+    },
+    "documents": {
+      "Navigation Log": {
+        "content": "<div class='form-fields'></div>",
+        "editableFields": [
+          { "type": "text", "name": "log_entry", "label": "Log Entry", "required": true },
+          { "type": "date", "name": "date", "label": "Date", "required": true }
+        ]
+      },
+      "Maintenance Report": {
+        "content": "<div class='form-fields'></div>",
+        "editableFields": [
+          { "type": "text", "name": "report_entry", "label": "Report Entry", "required": true }
+        ]
+      }
+    }
+  }
+}
